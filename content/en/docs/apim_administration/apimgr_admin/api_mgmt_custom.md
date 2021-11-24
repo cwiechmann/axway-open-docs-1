@@ -629,7 +629,6 @@ The menu is located in the `app.config` file, and it is enabled by default:
 
 ```
 connectedServicesMenu: {
-    host: "https://axway-portals-common-header.s3.eu-west-3.amazonaws.com",
     headerOffline: false,
     showSearch: true,
     showHelp: true,
@@ -650,7 +649,6 @@ To customize the menu header, perform the following steps:
 
 The `connectedServicesMenu` object groups the connected services properties. You can configure the following properties.
 
-* `host`: Specifies the host from which the menu is retrieved. For example: `host: "https://axway-portals-common-header.s3.eu-west-3.amazonaws.com"`
 * `headerOffline`: Specifies whether to render the connected services menu in offline mode. If set to `true`, it hides the **Search**, **Help**, and **Platform** menu options, regardless of what the `showSearch`, `showHelp` or `showPlatform` properties are set to.
 * `showSearch`: Specifies whether to show the **Search** menu option. Defaults to `true`.
 * `showHelp`: Specifies whether to show the **Help** menu option. Defaults to `true`.
