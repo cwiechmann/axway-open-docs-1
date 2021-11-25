@@ -373,6 +373,7 @@ The data volumes are stored in the Docker host machine, and as such they consume
 
 The following list describes which API Portal assets you should store in a Docker volume to preserve the customizations during upgrade or HA setup of an API Portal Docker deployment:
 
+* `/etc/apiportal` - API Portal `etc` directory. Used for encryption key secret for API Manager and Elasticsearch passwords.
 * `/opt/axway/apiportal/enckey` - Encryption key directory. Used by Public API mode.
 * `/opt/axway/apiportal/tasks` - Regular tasks directory. Used by Elasticsearch scheduler.
 * `/opt/axway/apiportal/htdoc/images` - Images uploaded by API Portal users or Admins.
@@ -392,6 +393,7 @@ The following is an example of how you can create data volumes:
 
 ```
 # create volumes
+docker volume create apiportal-etc
 docker volume create apiportal-enckey
 docker volume create apiportal-tasks
 docker volume create apiportal-images
@@ -402,6 +404,7 @@ docker volume create apiportal-certs
 
 # start API Portal container using the created volumes
 docker container run \
+  -v apiportal-etc:/etc/apiportal \
   -v apiportal-enckey:/opt/axway/apiportal/enckey \
   -v apiportal-tasks:/opt/axway/apiportal/tasks \
   -v apiportal-images:/opt/axway/apiportal/htdoc/images \
