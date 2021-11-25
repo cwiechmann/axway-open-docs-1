@@ -38,9 +38,16 @@ A new customisable header has been integrated to API Manager and API Gateway Man
 
 It is important, especially when upgrading from an earlier version, to be aware of the following changes in the behavior or operation of the product in this update, which may impact on your current installation.
 
-### placeholder 2
+### YAML Support in Policy Studio
 
-placeholder
+Policy Studio has initial support for YAML-based policies with known limitations to avoid data corruption. The following are not yet supported:
+
+* Environmentalization of values.
+* Creating a new project from an API Gateway instance using environmentalized values.
+* Opening a YAML project with manually environmentalized values.
+* Importing fragments with environmentalized values.
+
+Additionally the functionality to environmentalize fields from within Polciy Studio is disabled for YAML projects.
 
 ### Docker scripts now use Python 3
 
