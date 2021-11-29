@@ -139,6 +139,8 @@ Configure the following to use a custom authentication policy:
 
 Configure the following to enable OAuth authorization for access tokens issued by API Manager.
 
+{{< alert title="Note" color="primary" >}}Configuring the grant types in API Manager does not affect the runtime aspect of the OAuth flow. If you wish to modify the grant types supported at runtime for the OAuth flow, you must do it at the OAuth authorization server. The purpose of grant types in API Manager is to advertise this information to clients of the API so that they can successfully retrieve an access token. The token can then be supplied for verification by the security device when invoking an API.{{< /alert >}}
+
 ##### General OAuth settings
 
 **Access token store**: Select a required OAuth access token store from the list. For details on how to add OAuth access token stores to this list, see [Configure API Manager settings in Policy Studio](/docs/apim_administration/apimgr_admin/api_mgmt_config_ps/).
