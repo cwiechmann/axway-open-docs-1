@@ -22,10 +22,6 @@ Any custom `.fed` files deployed to a container must be upgraded using [upgradec
 
 The following new features and enhancements are available in this update.
 
-### placeholder 1
-
-placeholder
-
 ### Set Client Credentials as a Grant type
 
 You can now enable OAuth authorization for access tokens as Client credential type to share resources from another server using a Client ID and a Client Secret. For more information, see [Setting Grant type - Client Credentials](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/#grant-type---client-credentials).
@@ -38,7 +34,7 @@ A new customisable header has been integrated to API Manager and API Gateway Man
 
 It is important, especially when upgrading from an earlier version, to be aware of the following changes in the behavior or operation of the product in this update, which may impact on your current installation.
 
-### YAML Support in Policy Studio
+### YAML support in Policy Studio
 
 Policy Studio has initial support for YAML-based policies with known limitations to avoid data corruption. The following are not yet supported:
 
@@ -46,8 +42,13 @@ Policy Studio has initial support for YAML-based policies with known limitations
 * Creating a new project from an API Gateway instance using environmentalized values.
 * Opening a YAML project with manually environmentalized values.
 * Importing fragments with environmentalized values.
+* Importing custom filters.
+* **Copy and Paste** options on the Policy tree view.
+* **Configure API Manager** and **Configure OAuth** options in the **File** menu.
 
-Additionally the functionality to environmentalize fields from within Polciy Studio is disabled for YAML projects.
+Additionally the functionality to environmentalize fields from within Policy Studio is disabled for YAML projects.
+
+Team Development has also been disabled for YAML-based projects as it is not a supported feature. See [Team Development Best Practices](/docs/apigtw_devops/team_dev_practices/#when-to-use-team-development)
 
 ### Docker scripts now use Python 3
 
