@@ -23,9 +23,9 @@ API Portal is available as a software installation or a virtualized deployment i
 
 The following new features and enhancements are available in this update.
 
-### Centos 8 is replaced by Alpine
+### Centos 8 is replaced by Alpine BaseOS
 
-Because Centos 8 is end of support in 2021, we are now providing API Portal in a Docker container using the Alpine base operational system instead.
+Because Centos 8 is end of support in 2021, we are now providing API Portal in a Docker container using the Alpine BaseOS instead.
 
 ### Improved Docker image
 
@@ -33,7 +33,7 @@ Pagination and Elasticsearch are now enabled in API Docker containers. The pagin
 
 ### OAuth client credentials flow improvements
 
-Configuration for [OAuth client credentials flow](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/#oauth) was added in API Manager, and API Portal respects it. The publish/unpublish (enable/disable) toggle of **Implicit flow** will no longer affect the client credentials flow in API Portal.
+Configuration for [OAuth client credentials flow](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/#oauth) was added in API Manager, so API Portal now supports client credentials flow in line with API Manager adding support.
 
 ## Limitations of this update
 
@@ -47,7 +47,7 @@ This update has the following limitations:
 
 <!-- It is important, especially when upgrading from an earlier version, to be aware of the following changes in the behavior or operation of the product in this update.. -->
 
-* API Portal Docker image is now build on the Alpine operational system. The Docker image was previosly built on Centos 8.
+* API Portal Docker image is now build on top of Alpine BaseOS. The Docker image was previosly built on top of Centos 8.
 
 ## Deprecated features
 

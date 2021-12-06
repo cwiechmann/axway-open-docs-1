@@ -39,40 +39,39 @@ It is important, especially when upgrading from an earlier version, to be aware 
 Policy Studio has initial support for YAML-based policies with known limitations to avoid data corruption. The following are not yet supported:
 
 * Environmentalization of values.
+* Environmentalization of fields from within Policy Studio.
 * Creating a new project from an API Gateway instance using environmentalized values.
 * Opening a YAML project with manually environmentalized values.
 * Importing fragments with environmentalized values.
 * Importing custom filters.
-* **Copy and Paste** options on the Policy tree view.
-* **Configure API Manager** and **Configure OAuth** options in the **File** menu.
+* Copy and paste options on the Policy tree view.
+* Configure API Manager and Configure OAuth options in the **File** menu.
 
-Additionally the functionality to environmentalize fields from within Policy Studio is disabled for YAML projects.
-
-Team Development has also been disabled for YAML-based projects as it is not a supported feature. See [Team Development Best Practices](/docs/apigtw_devops/team_dev_practices/#when-to-use-team-development)
+[Team Development](/docs/apigtw_devops/team_dev_practices/#when-to-use-team-development) has also been disabled for YAML-based projects because it is not a supported feature.
 
 ### Docker scripts now use Python 3
 
-The Externally Managed Topology (EMT) scripts were upgraded from Python 2.7 to Python 3. For more information, see [Set up Your Docker Evironment](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#set-up-your-docker-environment).
+The Externally Managed Topology (EMT) scripts were upgraded from Python 2.7 to Python 3. For more information, see [Set up your Docker environment](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#set-up-your-docker-environment).
 
 ## Deprecated features
 
-<!--As part of our software development life cycle we constantly review our API Management offering. In this update, the following capabilities have been deprecated-->
+<!--As part of our software development life cycle we constantly review our API Management offering. As part of this update, the following capabilities have been deprecated-->
 
 No capabilities have been deprecated in this update.
 
 ## End of support notices
 
+This section describes the features that have been removed in this update.
+
 ### Developer tools on Windows 8.1
 
-This is a reminder that in February 2022 we will remove support for the installation and update of [developer tools](/docs/apim_installation/apigtw_install/install_dev_tools/) on Windows 8.1
+This is a reminder that in February 2022 we will remove support for the installation and update of [Developer tools](/docs/apim_installation/apigtw_install/install_dev_tools/) on Windows 8.1.
 
 ## Removed features
 
-<!-- To stay current and align our offerings with customer demand and best practices, Axway might discontinue support for some capabilities. As part of this review, the following features have been removed: -->
+<!-- To stay current and align our offerings with customer demand and best practices, Axway might discontinue support for some capabilities. As part of this update, the following features have been removed: -->
 
-### placeholder 4
-
-placeholder
+No capabilities have been removed in this update.
 
 ## Fixed issues
 
@@ -106,7 +105,7 @@ This version of API Gateway and API Manager includes:
 |RDAPI-24874|01273743|**Issue**: In API Gateway, when the String Replace Filter is configured to do straight match, strings containing regex syntax characters (for example, *) are not escaped and make the filter do a regex match. **Resolution**: String Replace Filter now escapes strings when configured to do straight match.
 |RDAPI-24922|01277012|**Issue**: Error message "Exceeds maximum size (1MB)" is displayed when uploading an image via the Applications screen in API Manager, if the file name contains non-ASCII characters. **Resolution**: When uploading an image with non-ASCII characters, its name is now encoded so it can be safely interpreted by the backend.
 |RDAPI-25072|01260463|**Issue**: Deploy Configuration to Group in API Gateway Manager shows only last status in Chrome/Edge. **Resolution**: Deploy Configuration window now shows the status of every deployment step. Also, the 'deploymentDelay' property at 'INSTALL_DIR/apigateway/webapps/emc/vordel/manager/app/app.config' file controls the time between the deployment steps to guarantee that the status is correctly displayed. Defaults to '500' milliseconds.
-|RDAPI-25091|01283439, 01287447|**Issue**: In API Gateway, when using a XACML PEP filter, if the XACML response does not contain the required decision, the filter fails with an exception and the message property "xacml.result.xml" does not contain the correct value. **Resolution**: If the XACML response does not contain the required decision, XACML PEP filter correctly sets the message property "xacml.result.xml" and fails gracefully.
+|RDAPI-25091|01283439, 01287447|**Issue**: In API Gateway, when using a XACML PEP filter, if the XACML response does not contain the required decision, the filter fails with an exception and the message property `xacml.result.xml` does not contain the correct value. **Resolution**: If the XACML response does not contain the required decision, XACML PEP filter correctly sets the message property `xacml.result.xml` and fails gracefully.
 |RDAPI-25103|01281011|**Issue**: When GZIP is enabled in "Output encoding", API Gateway includes "Content-Encoding" header in OPTIONS responses which produces an invalid HTTP response because of the empty body. **Resolution**: API Gateway generates valid HTTP responses when GZIP is enabled in "Output encoding".
 |RDAPI-25122|01297515, 01277755|**Issue**: Payload containing UTF-8 characters are not displayed correctly in Traffic Monitoring when viewed by users not belonging to administrator group. **Resolution**: UTF-8 payload contents are no longer altered by Node Manager when user is not an administrator.
 |RDAPI-25167|01285737|**Issue**: Reset of API Administrator password fails with 'API Administrator does not exist' error (over 1000 users). **Resolution**: The API Gateway server is filtering out the users based on the expected API Administrator user DN and the API Administrator password is reset correctly.
@@ -119,14 +118,14 @@ This version of API Gateway and API Manager includes:
 |RDAPI-25388|01293335|**Issue**: The cookie "RESOURCEOWNERCOOKIE" cannot be extracted or set, an Invalid Cookie Name exception is thrown. **Resolution**: Cookie names are now correctly validated according to RFC 2616 accepting alphabet chars.
 |RDAPI-25450|01294189, 01296003, 01294015|**Issue**: Regular expression for validation of email address does not conform with the syntax as defined in RFC5322. **Resolution**: Regular expression for validation of email address amended to conform with the syntax as defined in RFC5322 as follows: Flocalhost allowed as a domain. The length of a label of domain is between 1 and 63 characters. The length of the local part of email address is between 1 to 64 characters. The length limit of the domain part of email address is a maximum of 255 characters.The length limit of email address is a maximum of 320 characters.
 |RDAPI-25471|01295743|**Issue**: Deploying policy and environment packages from API Gateway Manager UI is failing on Aug21 update. **Resolution**: Deploying policy and environment packages from API Gateway Manager UI now succeeds.
-|RDAPI-25496|01289258|**Issue**: If a backend is not reachable, API Manager returns to the client a 500 Internal Server Error response including the headers from the request even if com.axway.apigw.request.headers.reflect is set to false. **Resolution**: Headers returned by API Manager in case of policy execution error are now filtered.
+|RDAPI-25496|01289258|**Issue**: If a backend is not reachable, API Manager returns to the client a 500 Internal Server Error response including the headers from the request even if com.`axway.apigw.request.headers.reflect` is set to false. **Resolution**: Headers returned by API Manager in case of policy execution error are now filtered.
 |RDAPI-25509|01296538, 01294832|**Issue**: Policy Studio no longer supported importing custom filters following refactoring to improve performance. **Resolution**: Custom Filters are supported in Policy Studio.
 |RDAPI-25535|01297122|**Issue**: An API key can be defined as OAuth id or External Client id and still be valid and usable. **Resolution**: API keys must be defined in API key store,  OAuth ids must be defined in OAuth id stores, and External client ids must be defined in External Client store to be rendered as valid.
 |RDAPI-25564|01281886, 01258472|**Issue**: Front-end API OAuth inbound security incorrectly returns 401 in a 503 cache loading situation. **Resolution**: Front-end API OAuth inbound security now returns 503 Service Unavailable error if the API client cache is not loaded yet.
-|RDAPI-25701|01297508|**Issue**: Static File Provider handler is not using MIME types resulting in HTTP header "Content-Type" returned for UI pages not being correct. **Resolution**: Static File Handler is now returning the default MIME type when "Content-Type" parameter is not explicitly defined in the configuration. New MIME types have been added: "image/x-icon" for ".ico" files, and "application/javascript" for ".config" files.
-|RDAPI-25726|01306173|**Issue**: Output encodings configured in a listener interface are overridden by an incoming remote host. **Resolution**: Now the output encodings configured in a listener interface are used if the incoming remote host output encodings are set to 'Default'. If the output encodings for the incoming remote host are explicitly set, e.g. 'gzip', then the output encodings from the incoming remote host are used. If the 'AXWAY_LEGACY_INCOMING_OUTPUT_ENCODINGS' environment variable is set with any value then the output encodings in the listener interface will be overridden by an incoming remote host as before.
+|RDAPI-25701|01297508|**Issue**: Static File Provider handler is not using MIME types resulting in HTTP header Content-Type returned for UI pages not being correct. **Resolution**: Static File Handler is now returning the default MIME type when Content-Type parameter is not explicitly defined in the configuration. New MIME types have been added: `image/x-icon` for `.ico` files, and `application/javascript` for `.config` files.
+|RDAPI-25726|01306173|**Issue**: Output encodings configured in a listener interface are overridden by an incoming remote host. **Resolution**: Now the output encodings configured in a listener interface are used if the incoming remote host output encodings are set to 'Default'. If the output encodings for the incoming remote host are explicitly set, e.g. 'gzip', then the output encodings from the incoming remote host are used. If the AXWAY_LEGACY_INCOMING_OUTPUT_ENCODINGS environment variable is set with any value then the output encodings in the listener interface will be overridden by an incoming remote host as before.
 |RDAPI-25730|01306369, 01315367, 01312901, 01312956|**Issue**: API Manager remote hosts are lost when instance is restarted. **Resolution**: API Manager remote hosts are loaded and configured during instance startup.
-|RDAPI-25897|01296372, 01153597|**Issue**: Multipart form-data requests with literals in the form of "${foo.bar.xxx" with no matching bracket were responded  with 500 response because a runtime exception was thrown inside API Manager. **Resolution**: These kind of literals are now properly supported.
+|RDAPI-25897|01296372, 01153597|**Issue**: Multipart form-data requests with literals in the form of `${foo.bar.xxx` with no matching bracket were responded with 500 response because a runtime exception was thrown inside API Manager. **Resolution**: These kind of literals are now properly supported.
 |RDAPI-25942|01315239|**Issue**: The apigw-backup-tool script fails to restore Cassandra 3.11.x due to how schema tables are different from Cassandra 2.2.x. **Resolution**: Fixed the apigw-backup-tool to handle both Cassandra 2.2.x and 3.11.x schema tables.
 
 ## Known issues
