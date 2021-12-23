@@ -512,7 +512,7 @@ You can use the **Read Application** filter to retrieve custom properties for ap
 ${authentication.application.id}
 ```
 
-After a successful read, the custom property is available in the resulting attribute, which is configured using **Name of attribute to set**. For example, with an **Application ID Selector** of `${apimgmt.application.id}`, and a **Name of attribute to set** attribute set to `${myApp}`, you can access `customProperty1` using the following value:
+After a successful read, the custom property is available in the resulting attribute, which is configured using **Name of attribute to set**. For example, with an **Application ID Selector** of `${authentication.application.id}`, and a **Name of attribute to set** attribute set to `${myApp}`, you can access `customProperty1` using the following value:
 
 ```
 ${myApp.customProperty1}
